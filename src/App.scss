@@ -1,13 +1,4 @@
-$board-bg-color: #0079bf;
-$nav-bar-app-bg-color: #0067a3;
-$nav-bar-board-bg-color: #078fde;
-$list-bg-color: #ebecf0;
-$gap: 10px;
-$column-header-height: 36px;
-$column-footer-height: 36px;
-$column-h1-height: 50px;
-$column-border-radius: 5px;
-$card-border-radius: 3px;
+@import './settings';
 
 
 body {
@@ -27,99 +18,7 @@ body {
   grid-template-rows: 40px 50px 1fr;
   background-color: $board-bg-color;
 
-  .navbar {
-    padding-left: $gap;
-    display: flex;
-    align-items: center;
 
-    &.app {
-      font-size: 1.5rem;
-      background-color: $nav-bar-app-bg-color;
-    }
 
-    &.board {
-      font-size: 1.1rem;
-      background-color: $nav-bar-board-bg-color;
-    }
-  }
-
-  .board-columns {
-    display: flex;
-    margin: 0 $gap $gap;
-    gap: $gap;
-    overflow-x: auto;
-
-    .column {
-      flex: 0 0 auto;
-      width: 300px;
-      height: calc(100% - #{$gap});
-      // margin-left: 10px;
-
-      > * {
-        background-color: $list-bg-color;
-        color: #333;
-        padding: 0 8px;
-      }
-      header {
-        padding-left: 15px;
-        height: $column-header-height;
-        line-height: $column-header-height;
-        font-size: 16px;
-        font-weight: bold;
-        border-top-left-radius: $column-border-radius;
-        border-top-right-radius: $column-border-radius;
-      }
-
-      h1 {
-        padding-left: 15px;
-        margin: 0;
-        height: $column-h1-height;
-        line-height: $column-h1-height;
-        font-size: 35px;
-        font-weight: bold;
-      }
-
-      footer {
-        padding-left: 15px;
-        height: $column-footer-height;
-        line-height: $column-footer-height;
-        border-bottom-left-radius: $column-border-radius;
-        border-bottom-right-radius: $column-border-radius;
-      }
-
-      ul {
-        list-style-type: none;
-        margin: 0;
-        max-height: calc(100% - #{$column-header-height} - #{$column-h1-height} - #{$column-footer-height});
-        overflow-y: auto;
-
-        // &::-webkit-scrollbar {
-        //   -webkit-appearance: none;
-        // }
-
-        li {
-          background-color: white;
-          padding: $gap;
-          border-radius: $card-border-radius;
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-
-          &:not(:last-child){
-            margin-bottom: $gap;
-          }
-
-          img {
-            display: block;
-
-            width: calc(100% + 2 * #{$gap});
-            margin: -$gap 0 $gap (-$gap);
-
-            border-bottom-left-radius: $card-border-radius;
-            border-bottom-right-radius: $card-border-radius;
-          }
-        }
-      }
-    }
-  
-  }
 
 }
