@@ -1,27 +1,29 @@
 import React from 'react'
-import Task from '../Task/Task'
+import Card from '../Card/Card'
 import './Column.scss'
+import { mapOrder } from '../../utilites/sorts';
 
-function Column() {
+function Column(props) {
+
+  const {column} = props;
+  // const cards = column.cards;
+  const cards = mapOrder(column.cards, column.cardOrder, 'id')
+
   return (
     <>
         <div className="column">
-          <header>Путь героя воглера</header>
-          <h1>Название главы</h1>
-          <ul className="task-list">
-            <Task/>
-            {/* <li className="task-item">second</li>
-            <li className="task-item">third</li>
-            <li className="task-item">third</li>
-            <li className="task-item">second</li>
-            <li className="task-item">third</li>
-            <li className="task-item">third</li>
-            <li className="task-item">second</li>
-            <li className="task-item">third</li>
-            <li className="task-item">third</li>
-            <li className="task-item">second</li>
-            <li className="task-item">third</li>
-            <li className="task-item">third</li> */}
+          <header>{column.header}</header>
+          <h1>{column.title}</h1>
+          <ul className="card-list">
+            { cards && cards.length > 0 && cards.map((card, index) => {
+              return (
+                <Card 
+                  key={card.id}
+                  card={card}
+                />
+              )
+
+            }) }
           </ul>
           <footer>Add another card</footer>
         </div>
